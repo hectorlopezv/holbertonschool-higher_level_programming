@@ -4,3 +4,4 @@ def uppercase(strr):
                       and ord(x) < 123 else ord(x), strr))
     for i in string:
         print('{}'.format(chr(i)), end="")
+    print("")
