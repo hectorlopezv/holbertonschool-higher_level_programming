@@ -12,3 +12,4 @@ else:
     condition = 'and is greater than 5'
 print('{} {} {} {} {}'.format(define_strings, number, "is",
                               number_temp, condition))
+
