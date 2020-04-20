@@ -12,5 +12,5 @@ elif number_temp < 6 and number_temp != 0:
     condition = 'and is less than 6 and not 0'
 else:
     condition = 'and is greater than 5'
-print '{} {} {} {} {}'.format(define_strings, number, 'is',
-                              number_temp, condition)
+
+print ('{} {} {} {} {}'.format(define_strings, number, "is", number_temp, condition))
