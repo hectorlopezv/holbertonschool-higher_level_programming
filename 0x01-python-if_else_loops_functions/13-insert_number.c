@@ -4,7 +4,7 @@
  *insert_node - add node in the end of linked list
  *@head: head of the list
  *@number: number to insert
- *Return: return node
+ *Return: return NULL if failed , node otherwise
  */
 
 listint_t *insert_node(listint_t **head, int number)
@@ -13,6 +13,19 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (head == NULL || *head == NULL)
 		return (NULL);
+
+	node = malloc(sizeof(listint_t));
+	if (node == NULL)
+		return (NULL);
+	node->n = number;
+	node->next = NULL;
+
+	if ((*head)->next == NULL)
+	{
+		(*head)->next = node;
+		return (node);
+
+	}
 	while (tmp && tmp->next)
 	{
 		if (number <= tmp->next->n)
