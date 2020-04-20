@@ -3,7 +3,6 @@
 import random
 number = random.randint(-10000, 10000)
 define_strings = 'Last digit of'
-flag = (1 if number < 0 else 0)
 number_temp = (int(str(number)[-1]) if number > 0 else -1
                * int(str(number)[-1]))
 if number_temp == 0:
