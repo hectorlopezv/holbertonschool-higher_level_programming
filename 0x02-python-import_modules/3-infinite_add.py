@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    from sys import argv
-    sum = 0
-    for i in argv[1:]:
-        sum += int(i)
-    print('{:d}'.format(sum))
+from sys import argv
+from functools import reduce
+if __name__ == '__main__':
+    len_ag = len(argv) - 1
+    def add(x, y): return int(x) + int(y)
+    result = 0 if len_ag == 0 else reduce(add, argv[1:])
+    print('{}'.format(result))
