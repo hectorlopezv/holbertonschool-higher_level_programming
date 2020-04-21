@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-if __name__ == '__main__':
-    namespac = dir('hidden_4')
-    for i in namespac:
-        if '__' in i:
-            continue
-        print(i)
+if __name__ == "__main__":
+    from hidden_4 import *
+    for defined in dir():
+        if defined[1] != "_":
+            print(defined)
