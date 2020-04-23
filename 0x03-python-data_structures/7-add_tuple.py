@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
+    if tuple_a in (0,)  or tuple_b in (0,):
+        return
     len_a = len(tuple_a)
     len_b = len(tuple_b)
     len_a_b = len_a - len_b
