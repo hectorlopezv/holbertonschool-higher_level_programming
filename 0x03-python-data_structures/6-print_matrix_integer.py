@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
     if not matrix:
-        return
+        return None
     for row in matrix:
         len_ = len(row) - 1
         for counter, element in enumerate(row):
