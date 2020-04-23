@@ -6,43 +6,29 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int len_list = 0, i;
-	int *temp_list;
-	listint_t *temp_head = *head, *temp_head_2 = *head;
+	listint_t *low, *fast, *prev, *temp;
 
+	fast = *head;
+	low = *head;
+	prev = NULL, temp = NULL;
 	if (head == NULL || *head == NULL)
 		return (1);
-	while (temp_head != NULL)
-	{
-		len_list++;
-		temp_head = temp_head->next;
+	while (fast && fast->next)
+	{/* loop until middle and reverse*/
+		temp = low->next;
+		fast = fast->next->next;
+		low->next = prev;
+		prev = low;
+		low = temp;
 	}
-	temp_head = *head;
-	temp_list = malloc(len_list * sizeof(int));
-	for (i = 0; i < len_list; i++)
+	low = fast != NULL ? low->next : low;
+	while (low)
 	{
-		temp_list[i] = temp_head->n;
-		temp_head = temp_head->next;
-	}
-	temp_list += i - 1;
-	for (i = 0; i < len_list; i++)
-	{
-		if (*temp_list == temp_head_2->n)
-		{
-			if (i == len_list - 1)
-				continue;
-			else
-			{
-				--temp_list;
-			}
-			temp_head_2 = temp_head_2->next;
-		}
-		else
-		{
-			free(temp_list);
+		if (low->n != prev->n)
 			return (0);
-		}
+		low = low->next;
+		prev = prev->next;
 	}
-	free(temp_list);
-	return (1);/*palindrome*/
+	return (1);
 }
+
