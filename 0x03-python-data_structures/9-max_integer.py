@@ -2,8 +2,8 @@
 def max_integer(my_list=[]):
     if not my_list:
         return None
-    f = [0]
-    temp = 0
+    f = [my_list[0]]
+    temp = f[0]
     for element in my_list:
         if element > temp:
             f.pop()
