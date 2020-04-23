@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-    len_a = len(tuple_a)- 1
-    len_b = len(tuple_b) - 1
+    len_a = len(tuple_a)
+    len_b = len(tuple_b)
     len_a_b = len_a - len_b
     if len_a > len_b:
         tuple_new = tuple_b + tuple([0 for elem in range(len_a_b)])
