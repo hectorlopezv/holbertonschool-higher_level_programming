@@ -5,5 +5,5 @@ def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         len_ = len(row) - 1
         for counter, element in enumerate(row):
-            print('{:d}'.format(element),end=" " if counter != len_ else "")
+            print('{:d}'.format(element), end=" " if counter != len_ else "")
         print("\n", end="")
