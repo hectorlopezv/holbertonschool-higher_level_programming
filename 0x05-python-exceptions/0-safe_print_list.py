@@ -4,7 +4,7 @@ def safe_print_list(my_list=[], x=0):
     try:
         for counter, ele in enumerate(my_list[:x], 1):
             print('{}'.format(ele), end="")
-    except IndexError:
+    except:
         print()
         return counter
     else:
