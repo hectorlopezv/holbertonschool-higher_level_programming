@@ -114,7 +114,7 @@ class SinglyLinkedList:
         """[summary]
 
         Arguments:
-            value {[type]} -- [description]
+            value {int} -- integer of the new node
         """
         if self.__head is None:
             self.__head = Node(value)
@@ -126,7 +126,6 @@ class SinglyLinkedList:
             if value < temp_node.data and prev is None:
                 self.__head = Node(value, temp_node)
                 self.temp = self.__head
-                prev = self.__head
                 return
             if value < temp_node.data and prev is not None:
                 prev.next_node = Node(value, temp_node)
