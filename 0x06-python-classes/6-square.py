@@ -54,14 +54,6 @@ class Square:
         palabra = "" if self.__size < 0 else "#" * self.__size
         print((" " * self.__position[1] + (palabra + "\n") * self.__size)[:-1])
 
-        #   if self.__size == 0:
-        #      print()
-        #     return
-        # for _ in range(self.__position[1]):
-        #    print()
-        #for _ in range(self.__size):
-        #    print("{}{}".format(" "*self.__position[0], "#"*self.__size))
-
     @property
     def position(self):
         """position
