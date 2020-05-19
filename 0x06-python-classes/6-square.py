@@ -51,8 +51,12 @@ class Square:
     def my_print(self):
         """my_print is going to print # accordin to size
         """
-        palabra = "" if self.__size < 0 else "#" * self.__size
-        print((" " * self.__position[1] + (palabra + "\n") * self.__size)[:-1])
+        if self.__size = 0:
+            print()
+        for p in range(self.__position[1]):
+            print()
+        for i in range(self.__size):
+            print("{}{}".format(" "*self.__position[0], "#"*self.__size))
 
     @property
     def position(self):
@@ -82,9 +86,3 @@ class Square:
         elif not isinstance(value[1], int) or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
-
-
-try:
-    my_square = Square(3, (1, ))
-except Exception as e:
-    print(e)
