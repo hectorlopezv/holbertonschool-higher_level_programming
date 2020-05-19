@@ -51,13 +51,16 @@ class Square:
     def my_print(self):
         """my_print is going to print # accordin to size
         """
-        if self.__size == 0:
-            print()
-            return
-        for _ in range(self.__position[1]):
-            print()
-        for _ in range(self.__size):
-            print("{}{}".format(" "*self.__position[0], "#"*self.__size))
+        palabra = "" if self.__size < 0 else "#" * self.__size
+        print((" " * self.__position[1] + (palabra + "\n") * self.__size)[:-1])
+
+        #   if self.__size == 0:
+        #      print()
+        #     return
+        # for _ in range(self.__position[1]):
+        #    print()
+        #for _ in range(self.__size):
+        #    print("{}{}".format(" "*self.__position[0], "#"*self.__size))
 
     @property
     def position(self):
@@ -80,10 +83,16 @@ class Square:
             TypeError: value[0] must be an integer
             TypeError: value[1] must be an integer
         """
-        if not isinstance(value, tuple) and len(value) != 2:
+        if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
         elif not isinstance(value[0], int) or value[0] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         elif not isinstance(value[1], int) or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
+
+try:
+    my_square = Square(3, (1, ))
+except Exception as e:
+    print(e)
