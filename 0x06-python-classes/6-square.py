@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ class of square"""
+
+
 class Square:
     """class Square
     """
@@ -9,9 +11,9 @@ class Square:
         Keyword Arguments:
             size {int} -- size int of a variable (default: {0})
         """
-        
         self.size = size
         self.position = position
+
     def area(self):
         """area function returns
 
@@ -19,6 +21,7 @@ class Square:
             area -- to be the area of the function
         """
         return self.__size**2
+
     @property
     def size(self):
         """size getter
@@ -44,6 +47,7 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+
     def my_print(self):
         """my_print is going to print # accordin to size
         """
@@ -54,6 +58,7 @@ class Square:
             print()
         for _ in range(self.__size):
             print("{}{}".format(" "*self.__position[0], "#"*self.__size))
+
     @property
     def position(self):
         """position
@@ -62,6 +67,7 @@ class Square:
             position -- return position as a tuple
         """
         return self.__position
+
     @position.setter
     def position(self, value):
         """position
@@ -81,7 +87,3 @@ class Square:
         elif not isinstance(value[1], int) or  value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
-
-
-
-
