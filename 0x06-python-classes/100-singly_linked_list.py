@@ -16,7 +16,7 @@ class Node:
         """
         self.data = data
         self.next_node = next_node
-    
+
     @property
     def data(self):
         """data
@@ -30,16 +30,16 @@ class Node:
     def data(self, value):
         """data
 
-        Arguments:
-            value {int} -- integer value
+            Arguments:
+                value {int} -- integer value
 
-        Raises:
-            TypeError: data is not an integer
+            Raises:
+                TypeError: data is not an integer
         """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
-    
+
     @property
     def next_node(self):
         """next node
@@ -77,23 +77,23 @@ class SinglyLinkedList:
         """string representation of class
 
         Returns:
-            print the linked list  -- going to print 
+            print the linked list  -- going to print
         """
         temp_node = self.__head
         resu = ""
         while temp_node is not None:
             resu += str(temp_node.data) + "\n"
-            temp_node = temp_node.next_node 
+            temp_node = temp_node.next_node
         return resu[:-1]
-    
+
     def __iter__(self):
-        """iterator 
+        """iterator
 
         Returns:
             self -- when the object its already a iterator return self
         """
         return self
-    
+
     def __next__(self):
         """next
 
@@ -126,7 +126,7 @@ class SinglyLinkedList:
             if value < temp_node.data and prev is None:
                 self.__head = Node(value, temp_node)
                 self.temp = self.__head
-                prev = self.__head 
+                prev = self.__head
                 return
             if value < temp_node.data and prev is not None:
                 prev.next_node = Node(value, temp_node)
@@ -135,4 +135,3 @@ class SinglyLinkedList:
             temp_node = temp_node.next_node
         prev.next_node = Node(value)
         return
-
