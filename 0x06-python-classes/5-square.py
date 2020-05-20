@@ -49,18 +49,3 @@ class Square:
         palabra = "" if self.__size < 0 else "#" * self.__size
         print(((palabra + "\n") * self.__size)[:-1])
 
-my_square = Square(3)
-print(my_square.area())
-my_square.my_print()
-
-print("--")
-
-my_square.size = 10
-my_square.my_print()
-
-print("--")
-
-my_square.size = 0
-my_square.my_print()
-
-print("--")
