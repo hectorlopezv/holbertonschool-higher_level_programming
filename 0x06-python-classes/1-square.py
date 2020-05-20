@@ -8,7 +8,7 @@ class Square:
         """init method
 
         Keyword Arguments:
-            size {int} -- size of a square (default: {None})
+            size {int} -- size of a square
         """
         self.__size = size
     
