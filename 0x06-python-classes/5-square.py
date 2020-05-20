@@ -46,8 +46,8 @@ class Square:
     def my_print(self):
         """my_print is going to print # accordin to size
         """
-        palabra = "" if self.size < 0 else "#" * self.size
-        print(((palabra + "\n") * self.size)[:-1])
+        palabra = "" if self.__size < 0 else "#" * self.__size
+        print(((palabra + "\n") * self.__size)[:-1])
 
 my_square = Square(3)
 print(my_square.area())
