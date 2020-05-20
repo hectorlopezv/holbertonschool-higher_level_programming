@@ -47,8 +47,13 @@ class Square:
     def my_print(self):
         """my_print is going to print # accordin to size
         """
-        palabra = "" if self.__size < 0 else "#" * self.__size
-        print(((" " * self.__position[0] + palabra + "\n") * self.__size)[:-1])
+        if self.__size == 0:
+            print()
+            return
+        for p in range(self.__position[1]):
+            print()
+        for i in range(self.__size):
+            print("{}{}".format(" "*self.__position[0], "#"*self.__size))
     @property
     def position(self):
         """position
