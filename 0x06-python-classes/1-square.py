@@ -8,7 +8,7 @@ class Square:
     def __init__(self, size):
         """init method
 
-        Keyword Arguments:
+        Arguments:
             size {int} -- size of a square
         """
         self.__size = size
