@@ -17,7 +17,7 @@ class Square:
         Returns:
             area -- to be the area of the function
         """
-        return self.size**2
+        return self.__size**2
     @property
     def size(self):
         """size getter
@@ -50,6 +50,7 @@ class Square:
         print(((palabra + "\n") * self.size)[:-1])
 
 my_square = Square(3)
+print(my_square.area())
 my_square.my_print()
 
 print("--")
