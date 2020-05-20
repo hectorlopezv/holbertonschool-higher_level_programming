@@ -43,3 +43,7 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+    def my_print(self):
+        """my_print is going to print # accordin to size
+        """
+        print('{}'.format("" if self.size < 0 else "#"*self.size))
