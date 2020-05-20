@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-    """square class"""
+"""square class"""
 class Square:
     """Square class"""
     def __init__(self, size=None):
+        """ init method
+
+        Keyword Arguments:
+            size {int} -- size of a square (default: {None})
+        """
         self.size = size
     
