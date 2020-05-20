@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ class of square"""
+
+
 class Square:
     """class Square
     """
@@ -9,8 +11,9 @@ class Square:
         Keyword Arguments:
             size {int} -- size int of a variable (default: {0})
         """
-        
+
         self.size = size
+
     def area(self):
         """area function returns
 
@@ -18,6 +21,7 @@ class Square:
             area -- to be the area of the function
         """
         return self.size**2
+
     @property
     def size(self):
         """size getter

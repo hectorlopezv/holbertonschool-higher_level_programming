@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ class of square"""
+
+
 class Square:
     """class Square
     """
@@ -9,8 +11,8 @@ class Square:
         Keyword Arguments:
             size {int} -- size int of a variable (default: {0})
         """
-        
         self.size = size
+
     def area(self):
         """area function returns
 
@@ -18,6 +20,7 @@ class Square:
             area -- to be the area of the function
         """
         return self.__size**2
+
     @property
     def size(self):
         """size getter
@@ -43,9 +46,9 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+
     def my_print(self):
         """my_print is going to print # accordin to size
         """
         palabra = "" if self.__size < 0 else "#" * self.__size
         print(((palabra + "\n") * self.__size)[:-1])
-
