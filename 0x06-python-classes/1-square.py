@@ -5,10 +5,10 @@
 class Square:
     """Square class"""
     def __init__(self, size=None):
-        """ init method
+        """init method
 
         Keyword Arguments:
             size {int} -- size of a square (default: {None})
         """
-        self.size = size
+        self.__size = size
     
