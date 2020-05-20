@@ -3,10 +3,10 @@
 
 
 class Square:
-    """Square class
+    """class Square
     """
     def __init__(self, size=0):
-        """__init__ method
+        """method
 
         Keyword Arguments:
             size {int} -- size of the square
@@ -18,7 +18,7 @@ class Square:
         if isinstance(int, size):
             raise TypeError("size must be an integer")
         elif size < 0:
-            raise ValueError("size must be >=0")
+            raise ValueError("size must be >= 0")
         self.__size = size
 
         
