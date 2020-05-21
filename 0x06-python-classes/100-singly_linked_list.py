@@ -133,4 +133,4 @@ class SinglyLinkedList:
             prev = temp_node
             temp_node = temp_node.next_node
         prev.next_node = Node(value)
-        return 
+        return
