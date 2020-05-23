@@ -1,0 +1,47 @@
+say_my_name.txt
+===============================
+ How to Use say_my_name.py
+===============================
+
+This library is very simple, since it only has one function called
+``say_my_name()``.
+
+Numbers
+=======
+
+``say_my_name()``  prints My name is <first name> <last name>.
+
+::
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+    >>> say_my_name("Bob")
+    My name is Bob 
+    >>> say_my_name("12")
+    My name is 12 
+    >>> say_my_name("13", "aquí tiene pa que me la bese")
+    My name is 13 aquí tiene pa que me la bese
+
+Trying Errors
+::
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name(None, "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([], "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("12", 12)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
