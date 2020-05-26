@@ -46,3 +46,5 @@ TypeError: first_name must be a string
 My name is Bob Lenon
 >>> say_my_name("Hector")
 My name is Hector 
+>>> say_my_name("", "")
+My name is  
