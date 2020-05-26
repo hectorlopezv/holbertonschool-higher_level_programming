@@ -14,7 +14,7 @@ TypeError: first_name must be a string
 Traceback (most recent call last):
 TypeError: first_name must be a string
 >>> say_my_name("lopez")
-'My name is lopez'
+'My name is lopez '
 >>> say_my_name("lopez", float("nan"))
 Traceback (most recent call last):
 TypeError: last_name must be a string
@@ -45,4 +45,4 @@ TypeError: first_name must be a string
 >>> say_my_name("Hector", "Lopez")
 'My name is Hector Lopez'
 >>> say_my_name("Hector")
-'My name is Hector'
+'My name is Hector '
