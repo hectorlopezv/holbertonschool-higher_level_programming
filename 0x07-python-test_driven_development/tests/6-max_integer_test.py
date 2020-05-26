@@ -3,6 +3,8 @@
 
 
 import unittest
+
+
 def max_integer(list=[]):
     """Function to find and return the max integer in a list of integers
         If the list is empty, the function returns None
@@ -20,12 +22,11 @@ def max_integer(list=[]):
 
 class testing(unittest.TestCase):
     def test_max_integer(self):
-        self.assertEqual(max_integer([1,2,3]) , 3 , "should be 3")
+        self.assertEqual(max_integer([1, 2, 3]), 3, "should be 3")
+
     def test_max_integer_2(self):
         self.assertEqual(max_integer(), None, "shoulde be None")
-    def test_max_integer_3(self):
-        with self.assertRaises(TypeError):
-            max_integer((1,2))
+
+
 if __name__ == '__main__':
     unittest.main()
-
