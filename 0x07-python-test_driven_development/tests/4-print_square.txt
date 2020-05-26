@@ -18,7 +18,7 @@
 ##########
 
 >>> print_square(0)
-<BLANKLINE>
+
 >>> print_square(1)
 #
 
@@ -53,3 +53,12 @@ TypeError: size must be an integer
 Traceback (most recent call last):
     ...
 ValueError: size must be an integer
+>>> print_square(0.7)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(True)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
