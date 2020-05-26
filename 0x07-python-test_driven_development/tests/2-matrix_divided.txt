@@ -40,5 +40,12 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
-
+>>> matrix = [[float("nan"),2],[2,3]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix = [[float("inf")/float("nan"),2],[2,3]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
