@@ -1,0 +1,30 @@
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
+
+>>> print(lazy_matrix_mul((1,2), [2,3]))
+Traceback (most recent call last):
+    ...
+TypeError: m_a not a list
+
+
+
+>>> print(lazy_matrix_mul([[2,3],[4,5]], (1,2)))
+Traceback (most recent call last):
+    ...
+TypeError: m_b not a list
+
+>>> print(lazy_matrix_mul(float("nan"), [[2,3],[4,5]]))
+Traceback (most recent call last):
+    ...
+TypeError: m_a not a list
+
+>>> lazy_matrix_mul( [[2,3],[4,5]], float("inf") )
+Traceback (most recent call last):
+    ...
+TypeError: m_b not a list
