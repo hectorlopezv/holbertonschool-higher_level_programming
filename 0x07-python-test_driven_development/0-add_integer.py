@@ -3,7 +3,7 @@
 
 
 def add_integer(a, b=98):
-   """ add_integer: adding integers
+    """adding integers
     Arguments:
         a {int, float} -- integer or float variable
 
