@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+""" matrix division by integer"""
+
+
 def matrix_divided(matrix, div):
+    """matrix division function by integer"""
+
     len_matrix = None
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
