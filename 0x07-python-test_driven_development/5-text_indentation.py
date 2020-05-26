@@ -21,4 +21,4 @@ def text_indentation(text):
                         retu.append(el)
         elif el != ' ':
             retu.append(el)
-    print("".join(retu))
+    print("".join(retu), end="")
