@@ -31,6 +31,8 @@ Quae animi affectio suum cuique tribuens atque hanc, quam dico.$
 <BLANKLINE>
 >>> text_indentation("Holbeton School")
 Holbeton School
+>>> text_indentation("          Prueba                ")
+Prueba
 >>> text_indentation()
 Traceback (most recent call last):
 ...
