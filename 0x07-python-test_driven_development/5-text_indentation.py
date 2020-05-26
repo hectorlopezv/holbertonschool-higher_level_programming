@@ -20,5 +20,3 @@ def text_indentation(text):
         elif el != ' ':
             retu.append(el)
     print("".join(retu), end="")
-
-text_indentation("Holberton. School? How are you: John")
