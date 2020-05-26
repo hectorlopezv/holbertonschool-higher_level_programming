@@ -1,19 +1,28 @@
 #!/usr/bin/python3
-"""text indentation"""
+"""
+This class prints a text with 2 new lines after each of these characters: .?:
+"""
 
 
 def text_indentation(text):
-    """text indentation: text"""
-    if not isinstance(text, str) or text is None:
+    """Prints a text with 2 new lines after each of these characters: .?:
+    Arguments:
+        text {str} -- text of testing
+    Raises:
+        TypeError: text must be a string
+    """
+    if text is None or not isinstance(text, str) or len(text) < 0:
         raise TypeError("text must be a string")
-    start = 0
-    end = 0
-    ver = 0
-    for idx, el in enumerate(text):
-        if el == '.' or el == '?' or el == ':':
-            end = idx + 1
-            print(text[start:end] + "\n")
-            start = idx + 1
-            ver = 1
-    if ver == 0:
-        print(text)
+    new_line = []
+    for line in text:
+        if line not in "?.:":
+            new_line.append(line)
+        else:
+            line += "\n\n"
+            new_line.append(line)
+    new_line = "".join(new_line)
+    new_line_aux = []
+    for line in new_line.split("\n"):
+        line = line.strip()
+        new_line_aux.append(line)
+    print("\n".join(new_line_aux), end=""))
