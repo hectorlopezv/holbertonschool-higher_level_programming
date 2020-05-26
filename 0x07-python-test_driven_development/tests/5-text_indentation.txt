@@ -31,3 +31,19 @@ Quae animi affectio suum cuique tribuens atque hanc, quam dico.$
 <BLANKLINE>
 >>> text_indentation("Holbeton School")
 Holbeton School
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+
+>>> text_indentation("How", "..are", "you?")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 3 were given
+
+
+>>> text_indentation(443434)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
