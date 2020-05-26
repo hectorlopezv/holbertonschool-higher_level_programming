@@ -1,6 +1,6 @@
 >>> say_my_name = __import__("3-say_my_name").say_my_name
 >>> say_my_name("hector", "lopez")
-'My name is hector lopez'
+My name is hector lopez
 >>> say_my_name(12, "lopez")
 Traceback (most recent call last):
 TypeError: first_name must be a string
@@ -14,7 +14,7 @@ TypeError: first_name must be a string
 Traceback (most recent call last):
 TypeError: first_name must be a string
 >>> say_my_name("lopez")
-'My name is lopez '
+My name is lopez 
 >>> say_my_name("lopez", float("nan"))
 Traceback (most recent call last):
 TypeError: last_name must be a string
@@ -43,6 +43,6 @@ TypeError: first_name must be a string
 Traceback (most recent call last):
 TypeError: first_name must be a string
 >>> say_my_name("Bob", "Lenon")
-'My name is Bob Lenon'
+My name is Bob Lenon
 >>> say_my_name("Hector")
-'My name is Hector '
+My name is Hector 
