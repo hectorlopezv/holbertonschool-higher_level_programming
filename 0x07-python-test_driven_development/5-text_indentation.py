@@ -15,8 +15,8 @@ def text_indentation(text):
             retu.append(text[start:end] + "\n\n")
             start = idx + 1
         elif el == ' ':
-            if idx < len(text):
-                if ord(text[idx + 1]) >= 32 and ord(text[idx + 1]) < 127:
+            if idx < len(text) - 1:
+                if ord(text[idx + 1]) > 32 and ord(text[idx + 1]) < 127:
                     retu.append(el)
         elif el != ' ':
             retu.append(el)
