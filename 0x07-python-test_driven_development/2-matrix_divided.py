@@ -24,8 +24,4 @@ def matrix_divided(matrix, div):
         if not all(isinstance(el, int) for el in matrix[idx]):
             raise TypeError(
                 "matrix must be a matrix (list of lists) of integers/floats")
-    for in_list in matrix:
-        for el in in_list:
-            matrix[matrix.index(in_list)][in_list.index(el)
-                                          ] = round(el / div, 2)
-    return matrix
+    return [[round(el / div, 2) for el in in_list] for in_list in matrix]
