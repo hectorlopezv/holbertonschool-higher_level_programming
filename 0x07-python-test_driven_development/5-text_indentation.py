@@ -8,15 +8,12 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     start = 0
     end = 0
-    retu = []
+    ver = 0
     for idx, el in enumerate(text):
         if el == '.' or el == '?' or el == ':':
             end = idx + 1
-            retu.append (text[start:end] + "\n")
+            print(text[start:end] + "\n")
             start = idx + 1
-        elif el != ' ':
-            retu.append(el)
-    print("".join(retu))
-text_indentation = __import__('5-text_indentation').text_indentation
-
-text_indentation("Holberton School")   
+            ver = 1
+    if ver == 0:
+        print(text)
