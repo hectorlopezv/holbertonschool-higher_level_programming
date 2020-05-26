@@ -13,4 +13,4 @@ def print_square(size):
     if size == 0:
         print()
     else:
-        print(((("#"*size)+"\n") * size)[:-1])
+        print(((("#" * size) + "\n") * size)[:-1])
