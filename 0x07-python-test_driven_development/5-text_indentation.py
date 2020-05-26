@@ -4,7 +4,7 @@
 
 def text_indentation(text):
     """text indentation: text"""
-    if not isinstance(text, str) or test is None:
+    if not isinstance(text, str) or text is None:
         raise TypeError("text must be a string")
     start = 0
     end = 0
