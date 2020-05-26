@@ -8,7 +8,7 @@ of two numbers only
 
 def add_integer(a, b=98):
     """
-    adding integers
+    add_integer: add two integers
     """
     if not isinstance(a, (int, float)) or a != a or
     a == float("inf") or a == float("-inf"):
