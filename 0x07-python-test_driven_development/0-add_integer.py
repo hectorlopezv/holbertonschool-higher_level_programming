@@ -1,21 +1,14 @@
 #!/usr/bin/python3
-"""add integer module"""
+"""
+add integer module
+this module does the addition
+of two numbers only 
+"""
 
 
 def add_integer(a, b=98):
-    """adding integers
-    Arguments:
-        a {int, float} -- integer or float variable
-
-    Keyword Arguments:
-        b {int, float} -- integer or float variable (default: {98})
-
-    Raises:
-        TypeError: a must be an integer
-        TypeError: b must be an integer
-
-    Returns:
-        int -- return the addition for a and b
+    """
+    adding integers
     """
     if not isinstance(a, (int, float)) or a != a or
     a == float("inf") or a == float("-inf"):
