@@ -45,8 +45,3 @@ def lazy_matrix_mul(m_a, m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
     return np.matmul(m_a_matrix, m_b_matrix)
-
-ma = [[1, 2], [3, 4]]
-mb = [[5, 6], [7, 8]]
-print(np.dot(ma, mb))
-print(lazy_matrix_mul(ma, mb))
