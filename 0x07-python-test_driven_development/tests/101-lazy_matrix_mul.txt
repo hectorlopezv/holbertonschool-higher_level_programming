@@ -5,26 +5,30 @@
  [15 22]]
 
 >>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
-[[13 16]]
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must be of the same size
 
 >>> print(lazy_matrix_mul((1,2), [2,3]))
 Traceback (most recent call last):
     ...
-TypeError: m_a not a list
+TypeError: m_a must be a list
 
-
-
->>> print(lazy_matrix_mul([[2,3],[4,5]], (1,2)))
+>>> print(lazy_matrix_mul([], [2,3]))
 Traceback (most recent call last):
     ...
-TypeError: m_b not a list
+TypeError: m_b must be a list of lists
 
->>> print(lazy_matrix_mul(float("nan"), [[2,3],[4,5]]))
+>>> print(lazy_matrix_mul([[2,3]], []))
 Traceback (most recent call last):
     ...
-TypeError: m_a not a list
+ValueError: m_b can't be empty
 
->>> lazy_matrix_mul( [[2,3],[4,5]], float("inf") )
+>>> print(lazy_matrix_mul([["hector", 2]], [[3, 4], [5, 6]]))
 Traceback (most recent call last):
     ...
-TypeError: m_b not a list
+TypeError: m_a should contain only integers or floats
+
+>>> print(lazy_matrix_mul([[-1, -2], [-3, -4]], [[-1, -2], [-3, -4]]))
+[[ 7 10]
+ [15 22]]
