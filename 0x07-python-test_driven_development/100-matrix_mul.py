@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""matrix mul"""
+
+
+def matrix_mul(m_a, m_b):
+    """matrix_mul"""
     
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
@@ -22,7 +28,8 @@
     
     if not all(isinstance(el, (int, float))  for row in m_b for el in row):
         raise TypeError("m_b should contain only integers or floats")
-        
+    
+            
     if m_a_num_rows != m_a_num_cols:
         raise TypeError("each row of m_a must be of the same size")
     
