@@ -77,11 +77,12 @@ class Rectangle(object):
             raise ValueError("height must be >= 0")
 
         self.__height = value
-
-    # def __setattr__(self, name,value):
-     #   if name == 'print_symbol':
-      #      Rectangle.print_symbol = value
-       # super(Rectangle, self).__setattr__(name, value)
+    '''
+     def __setattr__(self, name,value):
+        if name == 'print_symbol':
+            Rectangle.print_symbol = value
+        super(Rectangle, self).__setattr__(name, value)
+    '''
 
     def perimeter(self):
         """perimeter
