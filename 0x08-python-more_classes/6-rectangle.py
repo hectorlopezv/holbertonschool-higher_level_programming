@@ -104,8 +104,7 @@ class Rectangle(object):
         """
         if self.width == 0 or self.height == 0:
             return ""
-        return ((str("#") * self.width + "\n") *
-                self.height)[:-1]
+        return (("#" * self.width + "\n") * self.height)[:-1]
 
     def __repr__(self):
         """ string represtation for object for debugging purposes
@@ -119,3 +118,9 @@ class Rectangle(object):
         """del method is call when the reference count is 0
         """
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+print(Rectangle.number_of_instances)
+r_1 = Rectangle(12, 4)
+print(Rectangle.number_of_instances)
+del r_1
+print(Rectangle.number_of_instances)

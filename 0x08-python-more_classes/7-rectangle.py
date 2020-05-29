@@ -126,3 +126,4 @@ class Rectangle(object):
         """del method is call when the reference count is 0
         """
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
