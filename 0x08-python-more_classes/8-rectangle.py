@@ -27,11 +27,9 @@ class Rectangle(object):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        area1 = rect_1.area()
-        area2 = rect_2.area()
-        if area1 == area2:
+        if rect_1.area() == rect_1.area():
             return rect_1
-        if area1 < area2:
+        if rect_1.area() < rect_2.area():
             return rect_2
         else:
             return rect_1
@@ -142,12 +140,3 @@ class Rectangle(object):
         """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
-
-my_rectangle_1 = Rectangle(8, 4)
-my_rectangle_2 = Rectangle(2, 3)
-
-if my_rectangle_1 is Rectangle.bigger_or_equal(my_rectangle_1, my_rectangle_2):
-    print("my_rectangle_1 is bigger or equal to my_rectangle_2")
-else:
-    print("my_rectangle_2 is bigger than my_rectangle_1")
