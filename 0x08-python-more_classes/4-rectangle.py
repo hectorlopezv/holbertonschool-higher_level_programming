@@ -107,4 +107,5 @@ class Rectangle:
         Returns:
             object rectangle -- return string represtation of object
         """
-        return "Rectangle(" + str(self.width) + "," + str(self.height) + ")"
+        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+
