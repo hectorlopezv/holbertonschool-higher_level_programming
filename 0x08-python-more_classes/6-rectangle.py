@@ -5,7 +5,6 @@
 class Rectangle(object):
     """Rectangle class"""
     number_of_instances = 0
-    print_symbol = "#"
 
     def __new__(cls, *args, **kwargs):
         cls.number_of_instances += 1
@@ -78,11 +77,6 @@ class Rectangle(object):
 
         self.__height = value
 
-    # def __setattr__(self, name,value):
-     #   if name == 'print_symbol':
-      #      Rectangle.print_symbol = value
-       # super(Rectangle, self).__setattr__(name, value)
-
     def perimeter(self):
         """perimeter
 
@@ -110,8 +104,8 @@ class Rectangle(object):
         """
         if self.width == 0 or self.height == 0:
             return ""
-        return ((str(self.print_symbol) * self.width + "\n")
-                * self.height)[:-1]
+        return ((str("#") * self.width + "\n") *
+                self.height)[:-1]
 
     def __repr__(self):
         """ string represtation for object for debugging purposes
