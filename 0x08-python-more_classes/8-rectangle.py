@@ -54,6 +54,7 @@ class Rectangle(object):
             TypeError: if its not a integer
             ValueError: if value is less than 0
         """
+        print("entro en width")
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
 
@@ -82,7 +83,7 @@ class Rectangle(object):
             TypeError: its not a integer
             ValueError: value is less tha 0
         """
-
+        print("entro en heigth")
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
 
@@ -90,12 +91,14 @@ class Rectangle(object):
             raise ValueError("height must be >= 0")
 
         self.__height = value
-    '''
-     def __setattr__(self, name,value):
+
+    def __setattr__(self, name, value):
         if name == 'print_symbol':
+            print("hermoso")
             Rectangle.print_symbol = value
+        print("lindo")
+        print(name)
         super(Rectangle, self).__setattr__(name, value)
-    '''
 
     def perimeter(self):
         """perimeter
