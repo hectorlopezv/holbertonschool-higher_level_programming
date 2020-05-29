@@ -119,8 +119,3 @@ class Rectangle(object):
         """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-print(Rectangle.number_of_instances)
-r_1 = Rectangle(12, 4)
-print(Rectangle.number_of_instances)
-del r_1
-print(Rectangle.number_of_instances)
