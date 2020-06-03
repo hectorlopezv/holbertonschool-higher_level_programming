@@ -9,8 +9,7 @@ class MyList(list):
     """
 
     def print_sorted(self):
-        r = self[:]
-        r.sort()
-        print(r)
-        del r
+        """print_sorted"""
+
+        print(sorted(self))
     
