@@ -14,8 +14,3 @@ class Square(Rectangle):
     def area(self):
         """area method overwritten"""
         return self.__size * self.__size
-
-s = Square(13)
-
-print(s)
-print(s.area())
