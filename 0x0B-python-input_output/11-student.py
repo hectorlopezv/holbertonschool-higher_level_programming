@@ -15,4 +15,4 @@ class Studet:
     def to_json(self):
         """to_json"""
 
-        return vars(self)
+        return self.__dict__
