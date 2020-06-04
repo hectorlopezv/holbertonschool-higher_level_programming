@@ -4,4 +4,4 @@
 
 def class_to_json(obj):
     """class to json"""
-    return obj.vars()
+    return vars(obj)
