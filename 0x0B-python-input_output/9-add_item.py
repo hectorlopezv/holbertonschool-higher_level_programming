@@ -8,9 +8,9 @@ if __name__ == '__main__':
         '8-load_from_json_file').load_from_json_file
 
     try:
-        info = load_from_json_file("add_item.json")
+        info = load_from_json_file('add_item.json')
     except BaseException:
         info = []
 
     finally:
-        save_to_json_file(info + sys.argv[1:], "add_item.json")
+        save_to_json_file(info + sys.argv[1:], 'add_item.json')
