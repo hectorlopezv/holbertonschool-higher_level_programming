@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """14-pascal"""
-from math import factorial as f
 
+def f(n):
+    """pascal_triangle"""
+    for i in range(1,n + 1): 
+        fact = fact * i 
 
 def pascal_triangle(n):
     """pascal_triangle"""
