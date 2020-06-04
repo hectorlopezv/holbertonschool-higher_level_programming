@@ -8,5 +8,4 @@ try:
     data = load_from_json_file('add_item.json')
 except:
     data = []
-finally:
-    save_to_json_file(data + sys.argv[1:], 'add_item.json')
+save_to_json_file(data + sys.argv[1:], 'add_item.json')
