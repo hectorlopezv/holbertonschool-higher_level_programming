@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """7 bject to json-file"""
 import json
 
