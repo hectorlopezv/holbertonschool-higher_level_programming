@@ -11,5 +11,4 @@ try:
 except BaseException:
     info = []
 
-finally:
-    save_to_json_file(info + sys.argv[1:], 'add_item.json')
+save_to_json_file(info + sys.argv[1:], 'add_item.json')
