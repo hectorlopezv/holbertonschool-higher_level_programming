@@ -4,5 +4,5 @@
 
 def write_file(filename="", text=""):
     """write_file"""
-    with open(filename, 'w', enconde='utf8') as f:
-        f.write(text)
+    with open(filename, 'w') as f:
+        return f.write(text)
