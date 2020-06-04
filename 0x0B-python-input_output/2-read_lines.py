@@ -9,7 +9,7 @@ def read_lines(filename="", nb_lines=0):
     with open(filename, 'r') as f:
 
         for counter, line in enumerate(f, 1):
-            if counter < nb_lines:
+            if counter <= nb_lines:
                 print(line, end="")
             else:
                 return
