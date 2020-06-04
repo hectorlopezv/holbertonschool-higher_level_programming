@@ -7,7 +7,6 @@ def f(n):
     fact = 1
     for i in range(1, n + 1):
         fact = fact * i
-    print(fact)
     return fact
 
 
@@ -17,7 +16,7 @@ def pascal_triangle(n):
     if n <= 0:
         return out
 
-    for row in range(n + 1):
+    for row in range(n):
         resu = []
         for pos in range(row):
             x1 = f(row)
@@ -25,4 +24,3 @@ def pascal_triangle(n):
             resu.append(x1 // x2)
         out.append(resu + [1])
     return out
-
