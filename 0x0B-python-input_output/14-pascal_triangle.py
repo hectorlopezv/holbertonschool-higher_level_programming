@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """14-pascal"""
 
+
 def f(n):
     """pascal_triangle"""
-    fact = 0
-    for i in range(1,n + 1): 
-        fact = fact * i 
+    fact = 1
+    for i in range(1, n + 1):
+        fact = fact * i
+    print(fact)
     return fact
-    
+
+
 def pascal_triangle(n):
     """pascal_triangle"""
     out = []
@@ -22,3 +25,4 @@ def pascal_triangle(n):
             resu.append(x1 // x2)
         out.append(resu + [1])
     return out
+
