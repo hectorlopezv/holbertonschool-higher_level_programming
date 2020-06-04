@@ -2,7 +2,7 @@
 """#11"""
 
 
-class Studet:
+class Student:
     """student"""
 
     def __init__(self, first_name, last_name, age):
@@ -15,4 +15,4 @@ class Studet:
     def to_json(self):
         """to_json"""
 
-        return self.__dict__
+        return vars(self)
