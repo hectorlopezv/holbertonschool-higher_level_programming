@@ -8,5 +8,5 @@ if __name__ == '__main__':
     load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
 
-    save_to_json_file(sys.argv, "add_item.json")
+    save_to_json_file(sys.argv[1:], "add_item.json")
         
