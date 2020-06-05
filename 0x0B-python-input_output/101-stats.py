@@ -26,7 +26,7 @@ codes = {
 i = 0
 
 
-def print_sorted(dic):
+def print_sorted():
     """sorted"""
 
     print("File size: {:d}".format(file_size))
@@ -40,12 +40,12 @@ try:
         s = shlex.shlex(line, posix=True)
         s.whitespace_split = True
         s = list(s)
-
+        print(s)
         if s[5] in codes:
             codes[s[5]] += 1
         file_size += int(s[6])
         i += 1
         if i % 10 == 0:
-            print_sorted(codes)
+            print_sorted()
 except KeyboardInterrupt as e: 
-    print_sorted(codes)
+    print_sorted()
