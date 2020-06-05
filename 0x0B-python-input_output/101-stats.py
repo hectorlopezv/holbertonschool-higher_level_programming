@@ -47,5 +47,5 @@ try:
         if i % 10 == 0:
             print_sorted(codes)
         i += 1
-except BaseException:
+except KeyboardInterrupt:
     print_sorted(codes)
