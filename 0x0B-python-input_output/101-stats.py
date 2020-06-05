@@ -1,17 +1,9 @@
 #!/usr/bin/python3
 """101-stats"""
-
-
 import sys
 import signal
 import shlex
-"""
-#signal.signal(signal.SIGINT, print_stats)
 
-
-# <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
-# <status code> <file size>
-"""
 
 file_size = 0
 codes = {
@@ -46,5 +38,5 @@ try:
         i += 1
         if i % 10 == 0:
             print_sorted()
-except KeyboardInterrupt as e: 
+except KeyboardInterrupt as e:
     print_sorted()
