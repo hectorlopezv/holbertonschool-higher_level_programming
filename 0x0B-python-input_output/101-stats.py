@@ -40,7 +40,6 @@ try:
         s = shlex.shlex(line, posix=True)
         s.whitespace_split = True
         s = list(s)
-        print(s)
         if s[5] in codes:
             codes[s[5]] += 1
         file_size += int(s[6])
