@@ -1,37 +1,48 @@
 #!/usr/bin/python3
-'''Module for log parsing script.'''
+"""101-stats"""
+
+
 import sys
+import signal
+import shlex
+#signal.signal(signal.SIGINT, print_stats)
 
-if __name__ == "__main__":
-size = [0]
-codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-def check_match(line):
-    '''Checks for regexp match in line.'''
-    try:
-        line = line[:-1]
-        words = line.split(" ")
-        size[0] += int(words[-1])
-        code = int(words[-2])
-        if code in codes:
-            codes[code] += 1
-    except:
-        pass
+# <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
+# <status code> <file size>
+file_size = 0
+codes = {
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0}
+i = 0
 
-def print_stats():
-    '''Prints accumulated statistics.'''
-    print("File size: {}".format(size[0]))
-    for k in sorted(codes.keys()):
-        if codes[k]:
-            print("{}: {}".format(k, codes[k]))
-i = 1
+
+def print_sorted(dic):
+    """sorted"""
+    print("File size: {}".format(file_size))
+    for k, v in dic.items():
+        if v > 0:
+            print("{}: {}".format(k, v))
+
+
 try:
     for line in sys.stdin:
-        check_match(line)
+        s = shlex.shlex(line, posix=True)
+        s.whitespace_split = True
+        s = list(s)
+
+        if s[5] in codes:
+            codes[s[5]] += 1
+        file_size += int(s[6])
+
         if i % 10 == 0:
-            print_stats()
+            print_sorted(codes)
         i += 1
-except KeyboardInterrupt:
-    print_stats()
-    raise
-print_stats()
+except BaseException:
+    print_sorted(codes)
