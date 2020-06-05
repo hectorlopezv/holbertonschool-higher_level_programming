@@ -23,7 +23,7 @@ codes = {
     '404': 0,
     '405': 0,
     '500': 0}
-i = 1
+i = 0
 
 
 def print_sorted(dic):
@@ -47,5 +47,5 @@ try:
         if i % 10 == 0:
             print_sorted(codes)
         i += 1
-except KeyboardInterrupt:
+except KeyboardInterrupt as e: 
     print_sorted(codes)
