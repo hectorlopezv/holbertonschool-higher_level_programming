@@ -30,9 +30,9 @@ def print_sorted(dic):
     """sorted"""
 
     print("File size: {:d}".format(file_size))
-    for k, v in dic.items():
-        if v > 0:
-            print("{:s}: {:d}".format(k, v))
+    for x in sorted(codes.keys()):
+        if codes[x] != 0:
+            print("{:s}: {:d}".format(x, codes[x]))
 
 
 try:
