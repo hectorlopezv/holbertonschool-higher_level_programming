@@ -1,44 +1,28 @@
 #!/usr/bin/python3
-"""101-stats"""
+""" stats: script to get stats from generated http requests """
 import sys
-import signal
-import shlex
+import traceback
+import time
+
+codes = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+total = 0
+length = 0
 
 
-file_size = 0
-codes = {
-    '200': 0,
-    '301': 0,
-    '400': 0,
-    '401': 0,
-    '403': 0,
-    '404': 0,
-    '405': 0,
-    '500': 0}
-i = 0
-
-
-def print_sorted():
-    """sorted"""
-
-    print("File size: {:d}".format(file_size))
+def print_info():
+    """ prints info about parsed made so far """
+    print("File size: {:d}".format(length))
     for x in sorted(codes.keys()):
         if codes[x] != 0:
             print("{:s}: {:d}".format(x, codes[x]))
 
-
 try:
     for line in sys.stdin:
-        s = shlex.shlex(line, posix=True)
-        s.whitespace_split = True
-        s = list(s)
-        if s[5] in codes:
-            codes[s[5]] += 1
-        file_size += int(s[6])
-        i += 1
-        if i % 10 == 0:
-            print_sorted()
-
+        length += int(line.split()[8])
+        codes[line.split()[7]] += 1
+        total += 1
+        if total % 10 == 0:
+            print_info()
 except KeyboardInterrupt as e:
-    print_sorted()
-print_sorted()
+    print_info()
