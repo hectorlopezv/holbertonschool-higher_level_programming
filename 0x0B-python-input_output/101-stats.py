@@ -44,9 +44,8 @@ try:
         if s[5] in codes:
             codes[s[5]] += 1
         file_size += int(s[6])
-
+        i += 1
         if i % 10 == 0:
             print_sorted(codes)
-        i += 1
 except KeyboardInterrupt as e: 
     print_sorted(codes)
