@@ -28,10 +28,11 @@ i = 0
 
 def print_sorted(dic):
     """sorted"""
-    print("File size: {}".format(file_size))
+
+    print("File size: {:d}".format(file_size))
     for k, v in dic.items():
         if v > 0:
-            print("{}: {}".format(k, v))
+            print("{:s}: {:d}".format(k, v))
 
 
 try:
