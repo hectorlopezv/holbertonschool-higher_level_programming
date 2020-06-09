@@ -7,7 +7,15 @@ class Rectangle(Base):
     """Rectangle classs children of Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """[summary]
 
+        Args:
+            width (int): width of rectangle
+            height (int): height of rectangle
+            x (int, optional): x position in a 2d plane. Defaults to 0.
+            y (int, optional): y position in a 2d plane. Defaults to 0.
+            id (int, optional): "id" of the object itself. Defaults to None.
+        """
         self.width = width
         self.height = height
         self.x = x
@@ -112,7 +120,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """update args of instance"""
-        if args and len(args) !=0:
+        if args and len(args) != 0:
             self.update_(*args)
         else:
             self.update_(**kwargs)

@@ -6,10 +6,6 @@ import io
 from contextlib import redirect_stdout
 
 
-import inspect
-from pprint import pprint
-
-
 class TestRectangle(unittest.TestCase):
 
     """base test for all test"""
