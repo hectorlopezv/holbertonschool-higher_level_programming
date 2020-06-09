@@ -217,7 +217,17 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 1, -1)
         err = e.exception
         self.assertEqual(err.args[0], "y must be >= 0")
+    
+    def test_to_dictionary(self):
+        """test for to_dictionary method"""
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_resu = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1.to_dictionary(), r1_resu)
 
+        r1 = Rectangle(14, 5, 1, 1)
+        r1_resu = {'x': 1, 'y': 1, 'id': 2, 'height': 5, 'width': 14}
+        self.assertEqual(r1.to_dictionary(), r1_resu)
+    
     """
     def test_pep8_model(self):
 
