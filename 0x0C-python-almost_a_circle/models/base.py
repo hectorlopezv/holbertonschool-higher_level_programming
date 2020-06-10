@@ -33,7 +33,6 @@ class Base(object):
 
         if not list_dictionaries:
             return "[]"
-        
         return json.dumps(list_dictionaries)
 
     @classmethod
