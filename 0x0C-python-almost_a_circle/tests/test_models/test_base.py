@@ -58,7 +58,6 @@ class TestBase(unittest.TestCase):
             self.base_obj.__nb_object
 
     def test_load_from_file(self):
-
         """load from file"""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -81,46 +80,43 @@ class TestBase(unittest.TestCase):
         self.assertIsNot(r1, list_rectangles_output[0])
         self.assertIsNot(r2, list_rectangles_output[1])
 
-
         self.assertEqual(r1.__str__(), list_rectangles_output[0].__str__())
         self.assertEqual(r2.__str__(), list_rectangles_output[1].__str__())
 
     def test_create_base(self):
-
         """Test create base"""
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertIsInstance(r2, Rectangle)
-        resu_str = '[Rectangle] (1) 1/0 - 3/5'
+        resu_str = '[Rectangle] (2) 1/0 - 3/5'
         self.assertEqual(r2.__str__(), resu_str)
         self.assertIsNot(r1, r2)
-    
-    def test_json_string_to_dictionary(self):
 
+    def test_json_string_to_dictionary(self):
         """json_string_to_dictionary"""
-        
+
         list_input = [
-            {'id': 89, 'width': 10, 'height': 4}, 
+            {'id': 89, 'width': 10, 'height': 4},
             {'id': 7, 'width': 1, 'height': 7}
         ]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
-        resu_expected = [{'height': 4, 'width': 10, 'id': 89}, 
-        {'height': 7, 'width': 1, 'id': 7}]
+        resu_expected = [{'height': 4, 'width': 10, 'id': 89},
+                         {'height': 7, 'width': 1, 'id': 7}]
         self.assertEqual(list_output, resu_expected)
-    
+
     def test_json_string_to_file(self):
         """json_String_to_file"""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         Rectangle.save_to_file([r1, r2])
         resu_ = None
-        resu_expected = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}, 
-        {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
-        
+        resu_expected = '[{"id": 5, "width": 10, "height": 7, "x": 2, "y": 8},
+                          {"id": 6, "width": 2, "height": 4, "x": 0, "y": 0}]'
+
         with open("Rectangle.json", 'r') as f:
-            resu = file.read()
+            resu = f.read()
 
         self.assertEqual(resu, resu_expected)
 
@@ -129,14 +125,11 @@ class TestBase(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
-        r1_res = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
-        self.assertEqual(json_dictionary, r1)
+        r1_res = '[{"id": 4, "width": 10, "height": 7, "x": 2, "y": 8}]'
+        self.assertEqual(json_dictionary, r1_res)
 
         self.assertIsInstance(json_dictionary, str)
 
-
-   
-    
     def test_pep8_model(self):
         """test pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
@@ -150,14 +143,12 @@ class TestBase(unittest.TestCase):
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-    
-      def test_documentation(self):
+
+    def test_documentation(self):
         """Test to see if documentation is created and correct"""
+
         self.assertTrue(hasattr(Base, "__init__"))
         self.assertTrue(Base.__init__.__doc__)
-        self.assertTrue(Base.id.__doc__)
-
-
 
 
 if __name__ == '__main__':

@@ -4,6 +4,8 @@ from models.rectangle import Rectangle
 from models.base import Base
 import io
 from contextlib import redirect_stdout
+import inspect
+import pep8
 
 
 class TestRectangle(unittest.TestCase):
@@ -22,6 +24,7 @@ class TestRectangle(unittest.TestCase):
 
     def setUp(self):
         """reset cls attribute for test"""
+
         Rectangle._Base__nb_object = 0
 
     def tearDown(self):
@@ -30,6 +33,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_id(self):
         """test_id"""
+
         Rectangle._Base__nb_object = 0
         self.assertEqual(Rectangle(1, 1).id, 1)
         self.assertEqual(Rectangle(1, 1).id, 2)
@@ -39,11 +43,13 @@ class TestRectangle(unittest.TestCase):
 
     def test_istance(self):
         """test if rectangle is rectanglee and if recta chiild of base"""
+
         self.assertIsInstance(Rectangle(1, 1), Rectangle)
         self.assertIsInstance(Rectangle(1, 1), Base)
 
     def test_miss_arg(self):
         """test for misssing arguments"""
+
         with self.assertRaises(TypeError):
             temp_obj = Rectangle()
 
@@ -52,25 +58,20 @@ class TestRectangle(unittest.TestCase):
 
     def test_correct_init(self):
         """test for correct attributes"""
-        dict_rect =  {'_Rectangle__height': 5, '_Rectangle__width': 10,
-        '_Rectangle__x': 0, 
-        '_Rectangle__y': 0, 
-        'id': 1}
 
+        dict_rect = {'_Rectangle__height': 5, '_Rectangle__width': 10,
+                     '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 1}
         self.assertEqual(Rectangle(10, 5).__dict__, dict_rect)
-
-    def test_correct_methods(self):
-        """test_correct_methods"""
-        x = inspect.getmembers(Rectangle, inspect.ismethod)
-        self.assertEqual(x, [])
 
     def test_area(self):
         """Test_area method"""
+
         self.assertEqual(Rectangle(2, 2).area(), 4)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
 
     def test_display_0(self):
         """test display"""
+
         file_dup = io.StringIO()
         obj_temp = Rectangle(4, 6)
         res = '####\n####\n####\n####\n####\n####\n'
@@ -80,6 +81,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_1(self):
         """test_display"""
+
         r = Rectangle(5, 3, 5)
         f = io.StringIO()
         with redirect_stdout(f):
@@ -108,6 +110,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_str(self):
         """test string representation of Rectangle"""
+
         res_1 = """[Rectangle] (12) 2/1 - 4/6"""
         self.assertEqual(Rectangle(4, 6, 2, 1, 12).__str__(), res_1)
 
@@ -119,6 +122,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_input_integer(self):
         """test_expected error to happen"""
+
         with self.assertRaises(TypeError) as e:
             Rectangle(2.5, 1)
         err = e.exception
@@ -145,6 +149,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(err.args[0], "y must be an integer")
 
     def test_update_0(self):
+        """test update"""
+
         r1 = Rectangle(10, 10, 10, 10)
 
         r1.update(89)
@@ -168,6 +174,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_update_1(self):
         """test for cases in which  kwargs is skipped because args exist"""
+
         r1 = Rectangle(10, 10, 10, 10)
         r1.update(height=1)
         self.assertEqual(r1.height, 1)
@@ -217,9 +224,10 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 1, -1)
         err = e.exception
         self.assertEqual(err.args[0], "y must be >= 0")
-    
+
     def test_to_dictionary(self):
         """test for to_dictionary method"""
+
         r1 = Rectangle(10, 2, 1, 9)
         r1_resu = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         self.assertEqual(r1.to_dictionary(), r1_resu)
@@ -227,25 +235,25 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(14, 5, 1, 1)
         r1_resu = {'x': 1, 'y': 1, 'id': 2, 'height': 5, 'width': 14}
         self.assertEqual(r1.to_dictionary(), r1_resu)
-    
-    
-    def test_pep8_model(self):
 
+    def test_pep8_model(self):
+        """test pep8"""
 
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
-        self.assertEqual(result.total_errors, 0,
-                            "Found code style errors (and warnings).")
+        self.assertEqual(result.total_errors, 0, "Found co warnings).")
 
     def test_pep8_test(self):
+        """test pep8"""
 
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-      def test_documentation(self):
+    def test_documentation(self):
         """Test to see if documentation is created and correct"""
+
         self.assertTrue(hasattr(Rectangle, "__init__"))
         self.assertTrue(Rectangle.__init__.__doc__)
         self.assertTrue(hasattr(Rectangle, "width"))

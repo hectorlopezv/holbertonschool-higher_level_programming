@@ -91,9 +91,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """string representation of object"""
-        return "{} ({}) {}/{} - {}/{}".format("[Rectangle]",
-                                              self.id, self.x, self.y,
-                                              self.width, self.height)
+        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                self.id, self.x, self.y,
+                                                self.width, self.height)
 
     def display(self):
         """display overload"""
@@ -120,7 +120,16 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """update args of instance"""
-        if args and len(args) != 0:
+        if args:
             self.update_(*args)
         else:
             self.update_(**kwargs)
+
+    def to_dictionary(self):
+        """to to_dictionary"""
+        return {
+            'id': self.id,
+            'width': self.__width,
+            'height': self.__height,
+            'x': self.__x,
+            'y': self.__y}
