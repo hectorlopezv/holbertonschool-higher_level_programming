@@ -1,134 +1,106 @@
 #!/usr/bin/python3
-"""rectangle module"""
+'''Module for Rectangle class.'''
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle classs children of Base"""
+    '''A Rectangle class.'''
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """[summary]
-        Args:
-            width (int): width of rectangle
-            height (int): height of rectangle
-            x (int, optional): x position in a 2d plane. Defaults to 0.
-            y (int, optional): y position in a 2d plane. Defaults to 0.
-            id (int, optional): "id" of the object itself. Defaults to None.
-        """
+        '''Constructor.'''
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     @property
     def width(self):
-        """width getter"""
+        '''Width of this rectangle.'''
         return self.__width
 
     @width.setter
     def width(self, value):
-        """width setter"""
-        if type(value) != int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-
+        self.validate_integer("width", value, False)
         self.__width = value
 
     @property
     def height(self):
-        """heigth getter"""
+        '''Height of this rectangle.'''
         return self.__height
 
     @height.setter
     def height(self, value):
-        """height setter"""
-        if type(value) != int:
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
+        self.validate_integer("height", value, False)
         self.__height = value
 
     @property
     def x(self):
-        """x getter"""
+        '''x of this rectangle.'''
         return self.__x
 
     @x.setter
     def x(self, value):
-        """x setter"""
-        if type(value) != int:
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
+        self.validate_integer("x", value)
         self.__x = value
 
     @property
     def y(self):
-        """y getterr"""
+        '''y of this rectangle.'''
         return self.__y
 
     @y.setter
     def y(self, value):
-        """y settter"""
-        if type(value) != int:
-            raise TypeError("y must be an integer")
-
-        if value < 0:
-            raise ValueError("y must be >= 0")
+        self.validate_integer("y", value)
         self.__y = value
 
+    def validate_integer(self, name, value, eq=True):
+        '''Method for validating the value.'''
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if eq and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+        elif not eq and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
     def area(self):
-        """area method for rectangle"""
+        '''Computes area of this rectangle.'''
         return self.width * self.height
-    """
+
     def display(self):
-        ""graphical representation of object with #""
-        print(((("#" * self.width)+ "\n")* self.height)[:-1] )
-    """
+        '''Prints string representation of this rectangle.'''
+        s = '\n' * self.y + \
+            (' ' * self.x + '#' * self.width + '\n') * self.height
+        print(s, end='')
 
     def __str__(self):
-        """string representation of object"""
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
-                                                self.id, self.x, self.y,
-                                                self.width, self.height)
+        '''Returns string info about this rectangle.'''
+        return '[{}] ({}) {}/{} - {}/{}'.\
+            format(type(self).__name__, self.id, self.x, self.y, self.width,
+                   self.height)
 
-    def display(self):
-        """display overload"""
-        print("\n" * self.y, end="")
-        print(
-            (((" " * self.x) + ("#" * self.width) + "\n") * self.height)[:-1])
-
-    def update_(self, id=None, width=None, height=None, x=None, y=None):
-        """update aux method"""
+    def __update(self, id=None, width=None, height=None, x=None, y=None):
+        '''Internal method that updates instance attributes via */**args.'''
         if id is not None:
             self.id = id
-
         if width is not None:
             self.width = width
-
         if height is not None:
             self.height = height
-
         if x is not None:
             self.x = x
-
         if y is not None:
             self.y = y
 
     def update(self, *args, **kwargs):
-        """update args of instance"""
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        # print(args, kwargs)
         if args:
-            self.update_(*args)
-        else:
-            self.update_(**kwargs)
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
-        """to to_dictionary"""
-        return {
-            'id': self.id,
-            'width': self.__width,
-            'height': self.__height,
-            'x': self.__x,
-            'y': self.__y}
+        '''Returns dictionary representation of this class.'''
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
