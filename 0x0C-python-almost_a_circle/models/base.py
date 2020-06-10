@@ -31,7 +31,7 @@ class Base(object):
     def to_json_string(list_dictionaries):
         """json_string"""
 
-        if not list_dictionaries or list_dictionaries is None:
+        if not list_dictionaries or list_dictionaries == None:
             return str([])
         else:
             return json.dumps(list_dictionaries)
