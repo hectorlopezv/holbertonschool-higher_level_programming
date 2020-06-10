@@ -32,7 +32,7 @@ class Base(object):
         """json_string"""
 
         if not list_dictionaries or list_dictionaries is None:
-            return "[]"
+            return str([])
         else:
             return json.dumps(list_dictionaries)
 
