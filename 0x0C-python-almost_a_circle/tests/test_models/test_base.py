@@ -4,6 +4,7 @@ from models.base import Base
 import sys
 import io
 from models.rectangle import Rectangle
+import pep8
 
 
 class TestBase(unittest.TestCase):
@@ -135,20 +136,28 @@ class TestBase(unittest.TestCase):
 
 
    
-    """
+    
     def test_pep8_model(self):
+        """test pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_pep8_test(self):
+        """test pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
+    
+      def test_documentation(self):
+        """Test to see if documentation is created and correct"""
+        self.assertTrue(hasattr(Base, "__init__"))
+        self.assertTrue(Base.__init__.__doc__)
+        self.assertTrue(Base.id.__doc__)
 
-    """
+
 
 
 if __name__ == '__main__':
