@@ -126,7 +126,3 @@ class Base:
             t.end_fill()
 
         time.sleep(5)
-())
-
-        resu = [cls.create(**el) for el in resu]
-        return resu
