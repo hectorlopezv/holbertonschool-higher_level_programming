@@ -1,2 +1,2 @@
 -- Description
-DESCRIBE $1;
+SHOW CREATE TABLE first_table;
