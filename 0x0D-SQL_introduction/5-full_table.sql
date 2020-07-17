@@ -1,2 +1,2 @@
 -- Description
-DESCRIBE first_table;
+DESCRIBE $1;
