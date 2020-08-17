@@ -12,5 +12,7 @@ if __name__ == '__main__':
         "SELECT states.id, states.name FROM states WHERE states.name \
             LIKE 'N%' \
             ORDER BY states.id ASC")
-    for row in c.fetchall():
-        print(row)
+    result = c.fetchall()
+    if result:
+        for row in c.fetchall():
+            print(row)
