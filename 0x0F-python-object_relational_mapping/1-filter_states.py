@@ -8,11 +8,10 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(user=args_[1], passwd=args_[2], db=args_[3])
     c = db.cursor()
-    c.execute(
-        """
-        SELECT states.id, states.name FROM states 
-        WHERE states.name REGEXP '^N' ORDER BY states.id ASC""")
-    result = c.fetchall()
-    if result:
-        for row in c.fetchall():
+    c.execute("""
+SELECT * FROM states ORDER BY states.id ASC
+""")
+    query_rows = c.fetchall()
+    for row in query_rows:
+        if row[1].startswith("N"):
             print(row)
