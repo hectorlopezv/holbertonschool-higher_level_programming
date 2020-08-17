@@ -23,5 +23,5 @@ if __name__ == '__main__':
     obj_ = session.query(State).first()
 
     # print(result)
-
-    print("{}: {}".format(obj_.id, obj_.name))
+    if obj_:
+        print("{}: {}".format(obj_.id, obj_.name))
