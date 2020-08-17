@@ -19,6 +19,9 @@ if __name__ == '__main__':
     Session = scoped_session(session_factory)
 
     session = Session()
-    session.add(State(name="Louisiana", id=6))
+    state_ = State(name="Louisiana")
+    session.add(state_)
     session.commit()
-    print("6")
+    print(state_.id)
+    session.close()
+    engine.close()
