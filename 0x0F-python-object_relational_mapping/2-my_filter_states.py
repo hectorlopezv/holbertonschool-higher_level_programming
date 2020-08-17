@@ -9,7 +9,7 @@ if __name__ == '__main__':
     db = MySQLdb.connect(user=args_[1], passwd=args_[2], db=args_[3])
     c = db.cursor()
     str_ = """
-SELECT * FROM states 
+SELECT * FROM states
 WHERE states.name LIKE BINARY '{}'
 ORDER BY states.id ASC
 """.format(args_[4])
