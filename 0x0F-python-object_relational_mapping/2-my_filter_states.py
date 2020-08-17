@@ -10,7 +10,7 @@ if __name__ == '__main__':
     c = db.cursor()
     str_ = """
 SELECT * FROM states 
-WHERE states.name = '{}'
+WHERE states.name LIKE BINARY '{}'
 ORDER BY states.id ASC
 """.format(args_[4])
     c.execute(str_)
