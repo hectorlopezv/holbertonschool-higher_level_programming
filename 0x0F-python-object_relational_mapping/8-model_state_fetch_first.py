@@ -25,3 +25,5 @@ if __name__ == '__main__':
     # print(result)
     if obj_:
         print("{}: {}".format(obj_.id, obj_.name))
+    else:
+        print("Nothing")
