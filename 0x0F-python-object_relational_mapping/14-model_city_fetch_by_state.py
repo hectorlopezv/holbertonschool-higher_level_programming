@@ -4,9 +4,10 @@ if __name__ == '__main__':
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker, Session, scoped_session
     from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy import Column, Integer, String, DateTime
     import sys
+    from sqlalchemy import Column, String, ForeignKey, Integer
     from model_state import Base, State
+    from model_city import City
 
     args_ = sys.argv[1:]
 
@@ -20,9 +21,8 @@ if __name__ == '__main__':
 
     session = Session()
 
-    result = q = session.query(State).filter(State.name.like('%a%'))
+    result = session.query(City).join(State).all()
 
     # print(result)
     for obj_ in result:
-        print("{}: {}".format(obj_.id, obj_.name))
-
+        print("{}: ({}) {}".format(obj_.state_.name, obj_.id, obj_.name))
