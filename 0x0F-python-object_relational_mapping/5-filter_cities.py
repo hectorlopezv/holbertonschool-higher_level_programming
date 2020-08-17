@@ -14,8 +14,9 @@ if __name__ == '__main__':
     c.execute(str_)
     query_rows = c.fetchall()
     print("{}{}{}".format('', '', query_rows[0][0]), end="")
-    for row in query_rows[1:]:
-        print("{}{}{}".format(',', ' ', row[0]), end="")
-    print()
+    if query_rows:
+        for row in query_rows[1:]:
+            print("{}{}{}".format(',', ' ', row[0]), end="")
+        print()
     c.close()
     db.close()
