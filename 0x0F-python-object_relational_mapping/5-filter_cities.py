@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""how to use mysql client and compare it so sql alchemy"""
-if __name__ == '__main__':
-    import sys
-    import MySQLdb
-    args_ = sys.argv
-    # print(args_)
+"""Lists all cities by state passed by user"""
 
-    db = MySQLdb.connect(user=args_[1], passwd=args_[2], db=args_[3])
+import MySQLdb
+from sys import argv
+
+if __name__ == "__main__":
+    conn = MySQLdb.connect(host="localhost", port=3306, charset="utf8",
+                           user=argv[1], passwd=argv[2], db=argv[3])
     cur = conn.cursor()
     cur.execute("""
         SELECT cities.id, cities.name, states.name FROM cities
