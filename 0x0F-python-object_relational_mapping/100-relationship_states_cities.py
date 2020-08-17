@@ -30,7 +30,6 @@ if __name__ == '__main__':
     session.add(city_)
     session.commit()
 
-    state_info = session.query(State).first()
     # print(state_info.cities)
     # print(state_info.cities[0].name)
     session.close()
