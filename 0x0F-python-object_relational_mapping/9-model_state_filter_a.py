@@ -25,4 +25,3 @@ if __name__ == '__main__':
     # print(result)
     for obj_ in result:
         print("{}: {}".format(obj_.id, obj_.name))
-
