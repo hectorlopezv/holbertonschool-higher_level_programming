@@ -1,3 +1,3 @@
 #!/bin/bash
 #curl method
-curl -sfl -X DELETE "$1"
+curl -sfL -X DELETE "$1"
