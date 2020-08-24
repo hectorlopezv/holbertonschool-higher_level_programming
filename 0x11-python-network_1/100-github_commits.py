@@ -5,8 +5,8 @@ import sys
 
 
 if __name__ == '__main__':
-    user = sys.argv[1]
-    repo = sys.argv[2]
+    repo = sys.argv[1]
+    user = sys.argv[2]
 
     url = 'https://api.github.com/repos/{}/{}/commits?per_page=10'.format(user, repo)
     headers = {'Accept': 'application/vnd.github.v3+json'}
