@@ -2,12 +2,9 @@
 """python request module"""
 
 
-import urllib.request
+from urllib import request
 import sys
-url = sys.argv[1]
 
-request = urllib.request.Request(url)
-
-with urllib.request.urlopen(request) as request:
-    header = request.info()
-    print(header['X-Request-Id'])
+if __name__ == "__main__":
+    with request.urlopen(sys.argv[1]) as response:
+        print(response.getheader("X-Request-Id"))
