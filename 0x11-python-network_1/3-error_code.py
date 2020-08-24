@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """python request module"""
 
-
-import urllib.request
+from urllib import request
 import sys
 url = sys.argv[1]
 
-request =  urllib.request.Request(url)
+request =  request.Request(url)
 try:
-    with urllib.request.urlopen(request) as response:
+    with request.urlopen(request) as response:
         html = response.read()
         print(html.decode('utf-8'))
 except urllib.error.HTTPError as e:
