@@ -1,21 +1,22 @@
 #!/usr/bin/python3
 """status python network"""
-
-
 import requests
 import sys
 
-user = sys.argv[1]
-password = sys.argv[2]
 
-url = 'https://api.github.com/users/{}'.format(user)
+if __name__ == '__main__':
 
-headers = {'Authorization': 'token ' + password, 'Accept': 'application/vnd.github.v3+json'}
-result = requests.get(url, headers=headers)
+    user = sys.argv[1]
+    password = sys.argv[2]
 
-try:
-    result.raise_for_status()
-    print(result.json().get("id"))
+    url = 'https://api.github.com/users/{}'.format(user)
 
-except requests.exceptions.RequestException as e:
-    print("None")
+    headers = {'Authorization': 'token ' + password, 'Accept': 'application/vnd.github.v3+json'}
+    result = requests.get(url, headers=headers)
+
+    try:
+        result.raise_for_status()
+        print(result.json().get("id"))
+
+    except requests.exceptions.RequestException as e:
+        print("None")
