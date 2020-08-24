@@ -2,7 +2,7 @@
 """python request module"""
 
 
-from urllib import requests
+from urllib import request
 req = request.Request('https://intranet.hbtn.io/status')
 with request.urlopen(req) as response:
     html = response.read()
