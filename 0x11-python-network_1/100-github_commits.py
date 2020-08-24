@@ -19,6 +19,6 @@ if __name__ == '__main__':
 
             author_name = el.get("commit").get("author").get("name")
             author_commit_sha = el.get("sha")
-            print(str(author_commit_sha) + ": " +  str(author_name) )
+            print("{}: {}".format(author_commit_sha, author_name))
     except requests.exceptions.RequestException as e:
         print("None")
