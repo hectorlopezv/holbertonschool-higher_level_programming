@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """python request module"""
-
-
-import urllib.request
+from urllib import request
 import sys
+
+
 url = sys.argv[1]
 email = sys.argv[2]
 values = {'email': str(email)}
