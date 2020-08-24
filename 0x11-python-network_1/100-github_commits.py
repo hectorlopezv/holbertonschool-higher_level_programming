@@ -17,8 +17,8 @@ try:
     res_json = result.json()
     for el in res_json:
 
-        author_name = el["commit"]["author"]["name"]
-        author_commit_sha = el["sha"]
+        author_name = el.get("commit").get("author").get("name")
+        author_commit_sha = el.get("sha")
         print(str(author_commit_sha) + ": " +  str(author_name) )
 except requests.exceptions.RequestException as e:
     print("None")
