@@ -11,7 +11,8 @@ if __name__ == '__main__':
 
     url = 'https://api.github.com/users/{}'.format(user)
 
-    headers = {'Authorization': 'token ' + password, 'Accept': 'application/vnd.github.v3+json'}
+    headers = {'Authorization': 'token ' + password,
+               'Accept': 'application/vnd.github.v3+json'}
     result = requests.get(url, headers=headers)
 
     try:
